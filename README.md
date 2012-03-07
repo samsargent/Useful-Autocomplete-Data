@@ -37,6 +37,6 @@ return data;
 
 ## Nationalities ##
 
-[nationalities.json](https://github.com/samsargent/Useful-Autocomplete-Data/blob/master/data/countries.json)
+[nationalities.json](https://github.com/samsargent/Useful-Autocomplete-Data/blob/master/data/nationalities.json)
 
 Source - [http://www.guavastudios.com/downloads/nationalities/nationalities.txt](http://www.guavastudios.com/downloads/nationalities/nationalities.txt) -7/03/2012
