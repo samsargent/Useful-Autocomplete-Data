@@ -69,6 +69,19 @@
 	  </fieldset>
 	</form>
 	
+	
+	<form class="form-horizontal">
+	  <fieldset>
+	    <legend>Nationalities</legend>
+	    <div class="control-group">
+	      <label class="control-label" for="input01">Nationality</label>
+	      <div class="controls">
+	        <input type="text" class="input-xlarge" id="nationalities" data-provide="typeahead">
+	        <p class="help-block">Country of birth (source - <a href="https://github.com/samsargent/Useful-Autocomplete-Data/blob/master/data/countries.json">https://github.com/samsargent/Useful-Autocomplete-Data/blob/master/data/countries.json</a>)</p>
+	      </div>
+	    </div>
+	  </fieldset>
+	</form>
     </div> <!-- /container -->
 
     <!-- Le javascript
@@ -93,6 +106,20 @@
 			
 			//Set the data-source attr to be our countries array
 			$("#countries").data('source', countries);
+		});
+		
+		/*
+		 Countries Example
+		*/
+		$.getJSON('data/nationalities.json', function(data) {
+		  var nationalities = [];
+
+		  	$.each(data, function(key, val) {
+		    	nationalities.push(val);
+		  	});
+			
+			//Set the data-source attr to be our countries array
+			$("#nationalities").data('source', nationalities);
 		});
 		
 		
