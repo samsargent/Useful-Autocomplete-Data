@@ -55,13 +55,49 @@
       <h1>Useful Autocomplete Data - Examples &amp; Usage</h1>
       <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
 
+
+	<form class="form-horizontal">
+	  <fieldset>
+	    <legend>Countries</legend>
+	    <div class="control-group">
+	      <label class="control-label" for="input01">Country</label>
+	      <div class="controls">
+	        <input type="text" class="input-xlarge" id="countries" data-provide="typeahead">
+	        <p class="help-block">Country of birth</p>
+	      </div>
+	    </div>
+	  </fieldset>
+	</form>
+	
     </div> <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./js/jquery.min.js"></script>
-    <script src="./js/bootstrap-min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+	<script>
+	$(function(){
+		
+		
+		/*
+		 Countries Example
+		*/
+		$.getJSON('data/countries.json', function(data) {
+		  var countries = [];
+
+		  	$.each(data, function(key, val) {
+		    	countries.push(val.name);
+		  	});
+			
+			//Set the data-source attr to be our countries array
+			$("#countries").data('source', countries);
+		});
+		
+		
+	});
+	</script>
 
   </body>
 </html>
