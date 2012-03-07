@@ -11,7 +11,10 @@ Corrections to existing material are always welcome and I hope that together we 
 
 Source - [http://en.wikipedia.org/wiki/ISO_3166-1](http://en.wikipedia.org/wiki/ISO_3166-1) - 7/03/2012
 
-`function tableToJson(table) {
+````
+// Modified from http://johndyer.name/html-table-to-json/
+
+function tableToJson(table) {
 var data = []; // first row needs to be headers 
 var headers = [];
 for (var i=0; i<table.rows[0].cells.length; i++) {
@@ -29,4 +32,4 @@ rowData[ headers[j] ] = $(tableRow.cells[j]).find('tt').text();
 } data.push(rowData);
 }
 return data; 
-}`
+}````
