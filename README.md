@@ -7,4 +7,4 @@ Corrections to existing material are always welcome and I hope that together we 
 
 ## Countries ##
 
-[countries.json](/data/countries.json)
+[countries.json](https://github.com/samsargent/Useful-Autocomplete-Data/blob/master/data/countries.json)
