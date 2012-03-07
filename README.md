@@ -32,4 +32,4 @@ rowData[ headers[j] ] = $(tableRow.cells[j]).find('tt').text();
 } data.push(rowData);
 }
 return data; 
-}````
+}
