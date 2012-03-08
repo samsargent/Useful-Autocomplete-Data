@@ -84,6 +84,21 @@
 	    </div>
 	  </fieldset>
 	</form>
+	
+	
+		
+	<form class="form-horizontal">
+	  <fieldset>
+	    <legend>Languages</legend>
+	    <div class="control-group">
+	      <label class="control-label" for="input01">Language</label>
+	      <div class="controls">
+	        <input type="text" class="input-xlarge" id="languages" data-provide="typeahead">
+	        <p class="help-block">Language spoken at home (source - <a href="https://github.com/samsargent/Useful-Autocomplete-Data/blob/master/data/languages.json">https://github.com/samsargent/Useful-Autocomplete-Data/blob/master/data/languages.json</a>)</p>
+	      </div>
+	    </div>
+	  </fieldset>
+	</form>
     </div> <!-- /container -->
 
     <!-- Le javascript
@@ -111,7 +126,7 @@
 		});
 		
 		/*
-		 Countries Example
+		 nationalities Example
 		*/
 		$.getJSON('data/nationalities.json', function(data) {
 		  var nationalities = [];
@@ -122,6 +137,20 @@
 			
 			//Set the data-source attr to be our countries array
 			$("#nationalities").data('source', nationalities);
+		});
+		
+		/*
+		 Languages Example
+		*/
+		$.getJSON('data/languages.json', function(data) {
+		  var languages = [];
+
+		  	$.each(data, function(key, val) {
+		    	languages.push(val);
+		  	});
+			
+			//Set the data-source attr to be our countries array
+			$("#languages").data('source', languages);
 		});
 		
 		
