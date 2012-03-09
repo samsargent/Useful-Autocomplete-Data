@@ -8,6 +8,7 @@
     <meta name="author" content="Sam Sargent @unitseven">
 
     <!-- Le styles -->
+    <link type="text/css" href="./css/custom-theme/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
     <link href="./css/bootstrap.css" rel="stylesheet">
     <style>
       body {
@@ -87,6 +88,20 @@
 	    </div>
 	  </fieldset>
 	</form>
+	
+	<form class="form-horizontal">
+	  <fieldset>
+	    <legend>Locations (Google Maps Geocoded Addresses)</legend>
+	    <div class="control-group">
+	      <label class="control-label" for="input01">Address</label>
+	      <div class="controls">
+	        <input type="text" class="input-xlarge" id="geocode" data-provide="typeahead">
+	        <p class="help-block">Your Full address (source - <a href="http://code.google.com/apis/maps/documentation/geocoding/index.html">http://code.google.com/apis/maps/documentation/geocoding/index.html</a>)</p>
+	      </div>
+	    </div>
+	  </fieldset>
+	</form>
+	
     </div> <!-- /container -->
 
     <!-- Le javascript
@@ -94,6 +109,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
 
 	<script>
 	$(function(){
@@ -142,7 +159,70 @@
 		});
 		
 		
+
+		
+		/*
+		$("#geocode").keyup(function(){
+			 var data;
+			geocoder.geocode( {'address': $(this).val(), 'region': 'au'  }, function(results, status) {
+		          data = $.map(results, function(item) {
+						return item.formatted_address;
+		          });
+		console.log(data);
+				$("#geocode").data('source', data);
+		        });
+		
+		console.log($("#geocode").data('source'));
+
+			
+		});
+		
+		*/
+		
+		
+		$("#geocode").autocomplete({
+		      //This bit uses the geocoder to fetch address values
+		      source: function(request, response) {
+		        geocoder.geocode( {'address': request.term, 'region': 'au'  }, function(results, status) {
+		          response($.map(results, function(item) {
+		            return {
+		              label:  item.formatted_address,
+		              value: item.formatted_address,
+		              latitude: item.geometry.location.lat(),
+		              longitude: item.geometry.location.lng()
+		            }
+		          }));
+		        })
+		      },
+		      //This bit is executed upon selection of an address
+		      select: function(event, ui) {
+					console.log(ui.item.label);
+		      }
+		    });
+		
+
+
+				      function loadScript() {
+				        var script = document.createElement('script');
+				        script.type = 'text/javascript';
+				        script.src = 'http://maps.googleapis.com/maps/api/js?sensor=false&' +
+				            'callback=initialize';
+				        document.body.appendChild(script);
+				      }
+
+		window.onload = loadScript;
+		
+		
+		
 	});
+	
+	// define geocode as a global var, poor form I know...
+	var geocoder;
+	
+	function initialize() {
+		geocoder = new google.maps.Geocoder();
+	}
+	
 	</script>
 
   </body>
