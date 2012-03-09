@@ -98,6 +98,7 @@
 	        <input type="text" class="input-xlarge" id="geocode" data-provide="typeahead">
 	        <p class="help-block">Your Full address (source - <a href="http://code.google.com/apis/maps/documentation/geocoding/index.html">http://code.google.com/apis/maps/documentation/geocoding/index.html</a>)</p>
 	      </div>
+			<div id="map_canvas" style="width:100%; height:200px;"></div>
 	    </div>
 	  </fieldset>
 	</form>
@@ -196,7 +197,14 @@
 		      },
 		      //This bit is executed upon selection of an address
 		      select: function(event, ui) {
-					console.log(ui.item.label);
+					var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
+			        map.setCenter(location);
+			
+					var marker = new google.maps.Marker({
+					    map:map,
+					    animation: google.maps.Animation.DROP,
+					    position: location
+					  });
 		      }
 		    });
 		
@@ -218,9 +226,18 @@
 	
 	// define geocode as a global var, poor form I know...
 	var geocoder;
-	
+	var map;
 	function initialize() {
 		geocoder = new google.maps.Geocoder();
+		
+		var myOptions = {
+			          zoom: 8,
+			          center: new google.maps.LatLng(-34.397, 150.644),
+			          mapTypeId: google.maps.MapTypeId.ROADMAP
+			        };
+
+			        map = new google.maps.Map(document.getElementById('map_canvas'),
+			            myOptions);
 	}
 	
 	</script>
