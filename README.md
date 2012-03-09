@@ -1,7 +1,7 @@
 # Useful Autocomplete Data #
 A repo of useful data & examples for common form fields. 
 
-Corrections to existing material are always welcome and I hope that together we can provide a useful resource that is of help.
+Corrections & improvements welcome. If you have any suggestions for useful data to add please let me know. 
 
 [Examples & Usage](http://samsargent.github.com/Useful-Autocomplete-Data)
 
@@ -12,7 +12,9 @@ Corrections to existing material are always welcome and I hope that together we 
 Source - [http://en.wikipedia.org/wiki/ISO_3166-1](http://en.wikipedia.org/wiki/ISO_3166-1) - 7/03/2012
 
 ````
-// Modified from http://johndyer.name/html-table-to-json/
+/* Modified from http://johndyer.name/html-table-to-json/
+   Scraped in the chrome console using the following:
+*/
 
 function tableToJson(table) {
 var data = []; // first row needs to be headers 
