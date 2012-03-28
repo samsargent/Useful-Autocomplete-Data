@@ -182,9 +182,9 @@
 		  var postcodes = [];
 
 		  	$.each(data, function(key, val) {
-		    	postcodes.push(val.Pcode +", "+ val.Locality);
+		    	postcodes.push(val.Locality);
 		  	});
-						console.log(postcodes);
+						//console.log(postcodes);
 			//Set the data-source attr to be our countries array
 			$("#postcodes").data('source', postcodes);
 		});
