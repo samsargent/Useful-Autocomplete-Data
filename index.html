@@ -154,6 +154,8 @@
 		    	nationalities.push(val);
 		  	});
 			
+
+			
 			//Set the data-source attr to be our countries array
 			$("#nationalities").data('source', nationalities);
 		});
@@ -182,7 +184,7 @@
 		  	$.each(data, function(key, val) {
 		    	postcodes.push(val.Pcode +", "+ val.Locality);
 		  	});
-			
+						console.log(postcodes);
 			//Set the data-source attr to be our countries array
 			$("#postcodes").data('source', postcodes);
 		});
