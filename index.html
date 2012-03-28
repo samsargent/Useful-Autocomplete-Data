@@ -180,13 +180,11 @@
 		  var postcodes = [];
 
 		  	$.each(data, function(key, val) {
-		    	//postcodes.push(val.Pcode +", "+ val);
-				console.log(key);
-				console.log(val);
+		    	postcodes.push(val.Pcode +", "+ val);
 		  	});
 			
 			//Set the data-source attr to be our countries array
-			//$("#postcodes").data('source', languages);
+			$("#postcodes").data('source', postcodes);
 		});
 		
 		
