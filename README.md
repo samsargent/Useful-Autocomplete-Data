@@ -21,7 +21,7 @@ Source - [http://www.guavastudios.com/downloads/nationalities/nationalities.txt]
 
 [languages.json](https://github.com/samsargent/Useful-Autocomplete-Data/blob/master/data/languages.json)
 
-Source - [http://stevehardie.com/2009/10/list-of-common-languages/](http://stevehardie.com/2009/10/list-of-common-languages/) - 8/03/2011 - scraped via the below console script in chrome dev tools:
+Source - [http://stevehardie.com/2009/10/list-of-common-languages/](http://stevehardie.com/2009/10/list-of-common-languages/) - 8/03/2011 
 
 
 ## Postcodes ##
